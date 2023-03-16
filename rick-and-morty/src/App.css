@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.addBackground {
+  /* background-color: blueviolet; */
+  background-image: url("./Assests/background1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
