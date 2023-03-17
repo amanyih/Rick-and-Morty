@@ -14,7 +14,7 @@ const InputField = () => {
         <input
           type="text"
           placeholder="Search characters"
-          className="shadow appearance-none border rounded-full w-80 py-2 px-3 h-12 text-gray-700 leading-tigh focus:shadow-outline focus:outline-none placeholder:p-4"
+          className="shadow appearance-none border rounded-full w-80 py-2 px-6 h-12 text-gray-700 leading-tigh focus:shadow-outline focus:outline-none placeholder:p-2"
           id="search"
         />
       </div>
