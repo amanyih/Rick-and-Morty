@@ -1,26 +1,30 @@
 import "./App.css";
-import logo1 from "./Assests/logo1.png";
-import ButtonFilled from "./Components/UI/Buttons/buttonFilled";
-import Button from "./Components/UI/Buttons/button";
-import Link from "./Components/UI/Link/link";
-import NavBar from "./Components/UI/Nav/nav";
-import Hero from "./Components/Hero/Hero";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { github } from "@fortawesome/free-solid-svg-icons";
-
 // import { faGit } from "@fortawesome/free-regular-svg-icons";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import RootLayout from "./Layout/rootLayOut";
+import Home from "./Pages/Home";
 import CharacterList from "./Components/Characters/characterList";
+import Location from "./Components/Locations/location";
+import Episode from "./Components/Episodes/episodes";
 
-import logo2 from "./Assests/logo1.png";
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/characters" element={<CharacterList />}></Route>
+      <Route path="/locations" element={<Location />}></Route>
+      <Route path="/episodes" element={<Episode />}></Route>
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    <div className="h-screen addBackground relative">
-      <NavBar></NavBar>
-      {/* <Hero></Hero> */}
-      <CharacterList></CharacterList>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

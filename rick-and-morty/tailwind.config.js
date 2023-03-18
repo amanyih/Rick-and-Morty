@@ -8,6 +8,7 @@ module.exports = {
         lightGreen: "#D0EACE",
         lightBlue: "#05ACBF",
         lighCharcoal: "#515D7B",
+        bodyColor: "#fbfbfb",
       },
       transitionDuration: "500ms",
     },
