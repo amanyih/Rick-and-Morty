@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
 import rick from "../Assests/rick2.png";
-import logo from "../Assests/logo1.png";
 import InputField from "../Components/UI/Input/input";
 const Home = () => {
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    const fetchQuote = async () => {
+      const q = await fetch("loremricksum.com/api");
+      console.log(q);
+      const quoteData = await q.json();
+      setQuote(quoteData.data[0]);
+    };
+    fetchQuote();
+  });
+
   return (
     <div className="flex justify-center items-center ">
       <div className=" flex flex-colitems-center text-white w-1/2 justify-evenly">
@@ -22,8 +34,9 @@ const Home = () => {
         <img
           src={rick}
           className="drop-shadow-2xl  ml-72 max-w-md"
-          alt="a picture of rick sanchez c-137"
+          alt="arick sanchez c-137"
         />
+        <span className="text-white text-2xl mx-36">{quote}</span>
       </div>
     </div>
   );
