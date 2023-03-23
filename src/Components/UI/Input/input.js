@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faMagnifyingGlass } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { Fragment } from "react";
+// import { Fragment } from "react";
 const InputField = (props) => {
   return (
     <div className=" w-full flex items-center text-2xl text-gray-400 focus-within:text-gray-600">
