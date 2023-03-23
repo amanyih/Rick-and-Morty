@@ -8,10 +8,20 @@ module.exports = {
         lightGreen: "#D0EACE",
         lightBlue: "#05ACBF",
         lighCharcoal: "#515D7B",
-        bodyColor: "#fbfbfb",
+        bodyColor: "#262C3A",
+        pagination: "#ACC8E5",
+      },
+      height: {
+        bigger: "40rem",
+      },
+      width: {
+        bigger: "120rem",
+      },
+      borderRadius: {
+        half: "50%",
       },
       transitionDuration: "500ms",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

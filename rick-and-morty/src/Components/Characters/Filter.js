@@ -5,9 +5,11 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import Button from "../UI/Buttons/button";
 const Filter = () => {
   return (
     <span className=" text-white text-5xl align-middle h-16 mt-48 w-full">
+      <h1 className="mb-12">Filter</h1>
       <Accordion className="border-4 border-black-600 w-4/5">
         <AccordionItem className="border-2 border-emerald-400">
           <AccordionItemHeading>
