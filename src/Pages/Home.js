@@ -4,7 +4,6 @@ import InputField from "../Components/UI/Input/input";
 
 import { FaGithub, FaInstagram } from "react-icons/fa";
 import { BsTelegram } from "react-icons/bs";
-import { SiGmail } from "react-icons/si";
 const Home = () => {
   const [quote, setQuote] = useState("");
 
@@ -51,6 +50,7 @@ const Home = () => {
           href="https://github.com/amanyih/Rick-and-Morty"
           target={"_blank"}
           className=" hover:text-lightBlue"
+          rel="noreferrer"
         >
           {<FaGithub />}
         </a>
@@ -58,6 +58,7 @@ const Home = () => {
           href="https://t.me/bbbburp"
           target={"_blank"}
           className=" hover:text-lightBlue"
+          rel="noreferrer"
         >
           {<BsTelegram />}
         </a>
@@ -65,6 +66,7 @@ const Home = () => {
           href="https://t.me/bbbburp"
           target={"_blank"}
           className=" hover:text-lightBlue"
+          rel="noreferrer"
         >
           {<FaInstagram />}
         </a>

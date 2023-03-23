@@ -1,4 +1,4 @@
-import Card from "../UI/Card/card";
+// import Card from "../UI/Card/card";
 const Character = (props) => {
   return (
     <div className=" rounded-xl max-w-xs overflow-hidden bg-white mb-8 hover:cursor-pointer hover:scale-105 transition-transform shadow-2xl">
