@@ -11,6 +11,12 @@ import { Link } from "react-router-dom";
 
 const CharacterList = () => {
   const [chars, setChars] = useState(null);
+  const [search, setSearch] = useState("");
+
+  const onSearch = (e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
 
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
@@ -36,7 +42,11 @@ const CharacterList = () => {
       <div className=" w-full flex flex-col gap-8">
         <div>
           <h1 className="text-5xl align-middle text-white mb-5">Characters</h1>
-          <InputField></InputField>
+          <InputField
+            onChange={(e) => {
+              onSearch(e);
+            }}
+          ></InputField>
         </div>
         <div className="flex w-full flex-wrap gap-8 h-bigger max-w-bigger overflow-y-auto scrollbar-thin scrollbar-thumb-lightBlue scrollbar-track-body">
           {chars == null ? (
@@ -45,15 +55,24 @@ const CharacterList = () => {
               className="animate-spin text-white text-9xl"
             />
           ) : (
-            chars.map((element) => (
-              <Link to={element.id.toString()} key={element.id}>
-                <Character
-                  name={element.name}
-                  status={element.status}
-                  img={element.image}
-                ></Character>
-              </Link>
-            ))
+            chars
+              .filter((element) => {
+                return search == ""
+                  ? element
+                  : element.name
+                      .toLowerCase()
+                      .trim()
+                      .includes(search.toLowerCase().trim());
+              })
+              .map((element) => (
+                <Link to={element.id.toString()} key={element.id}>
+                  <Character
+                    name={element.name}
+                    status={element.status}
+                    img={element.image}
+                  ></Character>
+                </Link>
+              ))
           )}
         </div>
         {chars == null ? (
