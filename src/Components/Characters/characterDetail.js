@@ -21,9 +21,9 @@ const CharacterDetail = () => {
         return;
       }
       const nwData = await char.json();
-      if (nwData.status == "Dead") {
+      if (nwData.status === "Dead") {
         setColor("red");
-      } else if (nwData.status == "Alive") {
+      } else if (nwData.status === "Alive") {
         setColor("green");
       }
       setChar(nwData);
