@@ -49,7 +49,7 @@ const CharacterList = () => {
           ></InputField>
         </div>
         <div className="flex w-full flex-wrap gap-8 h-bigger max-w-bigger overflow-y-auto scrollbar-thin scrollbar-thumb-lightBlue scrollbar-track-body">
-          {chars == null ? (
+          {chars === null ? (
             <FontAwesomeIcon
               icon={faSpinner}
               className="animate-spin text-white text-9xl"
@@ -57,7 +57,7 @@ const CharacterList = () => {
           ) : (
             chars
               .filter((element) => {
-                return search == ""
+                return search === ""
                   ? element
                   : element.name
                       .toLowerCase()
@@ -75,7 +75,7 @@ const CharacterList = () => {
               ))
           )}
         </div>
-        {chars == null ? (
+        {chars === null ? (
           ""
         ) : (
           <ReactPaginate
