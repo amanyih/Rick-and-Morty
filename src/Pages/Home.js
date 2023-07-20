@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import rick from "../Assests/rick2.png";
 import InputField from "../Components/UI/Input/input";
-
 import { FaGithub, FaInstagram } from "react-icons/fa";
 import { BsTelegram } from "react-icons/bs";
 const Home = () => {
