@@ -4,6 +4,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useEffect, useState } from "react";
 import CharacterNotFound from "../UI/Error/error";
 
+
 const CharacterDetail = () => {
   const { id } = useParams();
 
