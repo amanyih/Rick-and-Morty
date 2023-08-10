@@ -11,8 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #c7ccdb95;
-  background-image: url("./Assests/background1.png");
+  /* background-color: #c7ccdb95; */
+  /* background-image: url("./Assests/background1.png"); */
 }
 
 code {
@@ -20,7 +20,7 @@ code {
     monospace;
 }
 .active {
-  color: #37ff1496;
+  /* color: #37ff1496; */
 }
 
 header nav {
