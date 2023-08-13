@@ -19,9 +19,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.active {
-  /* color: #37ff1496; */
-}
 
-header nav {
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #05acbf;
+  border-radius: 1rem;
 }
