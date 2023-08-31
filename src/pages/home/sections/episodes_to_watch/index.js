@@ -12,7 +12,7 @@ const EpisodesToWatch = () => {
     fetchData();
   });
   return (
-    <div className="mb-10">
+    <div className="mb-20">
       <h1 className="mb-5 font-bold text-5xl">Episodes To Watch</h1>
       {data && (
         <div className="flex flex-wrap">

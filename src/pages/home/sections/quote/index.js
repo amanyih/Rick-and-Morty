@@ -15,7 +15,7 @@ const Quote = () => {
   }, []);
 
   return (
-    <div className="bg-lightGreen dark:bg-lightBlue my-5 min-h[192px] py-5 flex items-center justify-center -mx-5 mb-10">
+    <div className="bg-lightGreen dark:bg-lightBlue my-5 min-h[192px] py-5 flex items-center justify-center -mx-24 mb-20">
       <span className="flex flex-col">
         <FaQuoteLeft className="text-white text-3xl dark:text-darkGreen" />
         <h1 className="text-5xl font-bold mx-2">

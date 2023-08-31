@@ -8,10 +8,10 @@ const CharachterPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      getCharacters("character", true, true);
+      await getCharacters("character", true, true);
     };
     fetchData();
-  }, [getCharacters]);
+  }, []);
 
   return (
     <div className="mb-20 w-full flex flex-col items-center flex-1">
@@ -28,7 +28,7 @@ const CharachterPage = () => {
           ]}
         />
       </div>
-      <div className="mb-20 flex flex-wrap items-center pl-20">
+      <div className="mb-20 flex flex-wrap items-center pl-20 justify-evenly">
         {data &&
           data.map((character) => {
             return (

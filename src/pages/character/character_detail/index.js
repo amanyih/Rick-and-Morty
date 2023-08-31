@@ -11,9 +11,10 @@ const CharacterDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       await getFamily(`character/${id}`);
+      console.log("detail page ----------------", data);
     };
     fetchData();
-  }, [id, getFamily]);
+  }, []);
 
   return (
     <div className="w-full">
@@ -31,7 +32,7 @@ const CharacterDetail = () => {
           </div>
         </div>
       )}
-      <div className="mb-10">
+      {/* <div className="mb-10">
         <h1 className="font-bold text-4xl mb-5">Appears On</h1>
         <div className="flex flex-wrap">
           <EpisodeCard to={Route.EPISODE + "/id"} />
@@ -39,7 +40,7 @@ const CharacterDetail = () => {
           <EpisodeCard to={Route.EPISODE + "/id"} />
           <EpisodeCard to={Route.EPISODE + "/id"} />
         </div>
-      </div>
+      </div> */}
       <PeopleAlsoSearchedFor cur_id={id} />
     </div>
   );

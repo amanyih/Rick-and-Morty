@@ -2,8 +2,8 @@ import { Description, HomeImage } from "./components";
 import { Family, EpisodesToWatch, Quote } from "./sections";
 const HomePage = () => {
   return (
-    <div>
-      <div className="flex items-center w-full px-20 mb-10">
+    <div className="px-20">
+      <div className="flex items-center w-full  mb-10">
         <Description />
         <HomeImage />
       </div>

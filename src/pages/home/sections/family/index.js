@@ -15,9 +15,9 @@ const Family = () => {
   }, []);
 
   return (
-    <div className="mb-10">
+    <div className="mb-20">
       <h1 className="mb-5 text-5xl font-bold">Family</h1>
-      <div className="flex w-full flex-wrap">
+      <div className="flex w-full flex-wrap justify-evenly">
         {data &&
           data.map((character) => {
             return (
