@@ -6,6 +6,8 @@ import ThemeToggle from "./theme_toggle";
 import Breadcrumb from "./breadcrumb";
 import { CharacterCard, LocationCard, EpisodeCard } from "./card";
 import Search from "./search";
+import Filter from "./filter";
+import Pagination from "./pagination";
 
 export {
   NavBar,
@@ -18,4 +20,6 @@ export {
   ThemeToggle,
   Breadcrumb,
   Search,
+  Filter,
+  Pagination,
 };

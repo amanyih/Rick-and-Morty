@@ -3,7 +3,7 @@ import { FaCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const CharacterCard = (props) => {
   return (
-    <Link to={props.to ? props.to : "id"}>
+    <Link className="inline-block" to={props.to ? props.to : "id"}>
       <div className=" w-96 rounded-2xl overflow-hidden shadow-2xl m-2 pb-2">
         <img className="h-64 w-full object-cover" src={Morty} alt="" />
         <div className="px-4 py-2 mt-2">
