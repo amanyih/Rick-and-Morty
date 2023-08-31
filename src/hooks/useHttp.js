@@ -14,15 +14,11 @@ const useHttp = () => {
         const res = await fetch(baseUrl + url);
         const data = await res.json();
 
-        console.log("inside use http", data);
-
         if (transform) {
           setData(data.results);
         } else {
           setData(data);
         }
-
-        // setData(data.results);
       } else {
         const res = await fetch(url);
         const data = await res.json();

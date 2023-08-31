@@ -11,20 +11,19 @@ const CharacterDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       await getFamily(`character/${id}`);
-      console.log("detail page ----------------", data);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
-    <div className="w-full">
+    <div className="w-full px-20">
       {data && (
-        <div className="flex justify-center items-center w-full mb-10">
+        <div className="flex justify-center items-center w-full mb-20">
           <div className="pr-4 border-r-2">
             <img src={data.image} alt="" />
           </div>
           <div className="text-3xl pl-4">
-            <h1 className="text-7xl font-bold">{data.name}</h1>
+            <h1 className="text-7xl font-bold mb-5">{data.name}</h1>
             <h1 className="mb-3">{`Species : ${data.species}`}</h1>
             <h1 className="mb-3">{`Status : ${data.status}`}</h1>
             <h1 className="mb-3">{`Gender : ${data.gender}`}</h1>

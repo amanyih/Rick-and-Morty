@@ -16,14 +16,14 @@ const PeopleAlsoSearchedFor = ({ cur_id }) => {
     fetchData();
   }, []);
   return (
-    <div className="mb-5">
-      <h1 className="font-bold text-4xl mb-5">People Also Search For</h1>
+    <div className="mb-20">
+      <h1 className="font-bold text-4xl mb-10">People Also Search For</h1>
       {data && (
         <div className="flex flex-wrap">
           {data.map((character) => (
             <CharacterCard
               character={character}
-              to={Route.CHARACTER + `/${character.id}`}
+              to={Route.CHARACTER + "/" + character.id}
             />
           ))}
         </div>

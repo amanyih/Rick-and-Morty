@@ -9,7 +9,7 @@ const RootLayout = () => {
         <NavBar />
         <ThemeToggle />
       </header>
-      <main className=" flex flex-col flex-1">
+      <main className=" flex flex-col flex-1 ">
         <Breadcrumb />
         <Outlet />
       </main>
