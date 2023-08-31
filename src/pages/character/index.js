@@ -1,6 +1,18 @@
 import { CharacterCard, Search, Filter, Pagination } from "../../components";
+import useHttp from "../../hooks/useHttp";
+import { useEffect } from "react";
+import { Route } from "../../constants";
 
 const CharachterPage = () => {
+  const { data, sendRequest: getCharacters } = useHttp();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      getCharacters("character", true, true);
+    };
+    fetchData();
+  }, [getCharacters]);
+
   return (
     <div className="mb-20 w-full flex flex-col items-center flex-1">
       <Search />
@@ -17,28 +29,16 @@ const CharachterPage = () => {
         />
       </div>
       <div className="mb-20 flex flex-wrap items-center pl-20">
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
+        {data &&
+          data.map((character) => {
+            return (
+              <CharacterCard
+                key={character.id}
+                to={Route.CHARACTER + "/" + character.id}
+                character={character}
+              />
+            );
+          })}
       </div>
       <Pagination />
     </div>

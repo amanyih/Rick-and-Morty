@@ -6,20 +6,30 @@ const useHttp = () => {
   const [data, setData] = useState();
   const baseUrl = "https://rickandmortyapi.com/api/";
 
-  const sendRequest = async (url, base = true) => {
+  const sendRequest = async (url, base = true, transform = false) => {
     setLoading(true);
     setError(false);
     try {
       if (base) {
         const res = await fetch(baseUrl + url);
         const data = await res.json();
-        setData(data.results);
+
+        console.log("inside use http", data);
+
+        if (transform) {
+          setData(data.results);
+        } else {
+          setData(data);
+        }
+
+        // setData(data.results);
       } else {
         const res = await fetch(url);
         const data = await res.json();
-        setLoading(false);
+
         setData(data);
       }
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       setError(true);
