@@ -3,7 +3,7 @@ import { Family, EpisodesToWatch, Quote } from "./sections";
 const HomePage = () => {
   return (
     <div className="px-20">
-      <div className="flex items-center w-full  mb-10">
+      <div className="flex flex-col lg:flex-row items-center w-full mb-10">
         <Description />
         <HomeImage />
       </div>

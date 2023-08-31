@@ -32,7 +32,10 @@ const ThemeToggle = () => {
     }
   };
   return (
-    <button onClick={handleClick} className="hover:cursor-pointer text-3xl">
+    <button
+      onClick={handleClick}
+      className="hover:cursor-pointer text-3xl ml-auto"
+    >
       {dark && <FaSun className="text-yellow-500" />}
       {!dark && <FaMoon className="text-lighCharcoal" />}
     </button>
