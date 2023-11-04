@@ -34,7 +34,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={handleClick}
-      className="hover:cursor-pointer text-3xl ml-auto"
+      className="hover:cursor-pointer text-3xl mx-4 my-6 md:my-0 cursor-pointer"
     >
       {dark && <FaSun className="text-yellow-500" />}
       {!dark && <FaMoon className="text-lighCharcoal" />}

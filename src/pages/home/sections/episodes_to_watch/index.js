@@ -20,7 +20,7 @@ const EpisodesToWatch = () => {
             <EpisodeCard
               key={episode.id}
               episode={episode}
-              to={Route.EPISODE + episode.id}
+              to={Route.EPISODE + "/" + episode.id}
             />
           ))}
         </div>

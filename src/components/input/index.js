@@ -3,7 +3,13 @@ const Input = (props) => {
     <input
       type={props.type}
       value={props.value}
-      onChange={props.onChange}
+      onChange={
+        props.onChange
+          ? (e) => {
+              props.onChange(e.target.value);
+            }
+          : null
+      }
       ref={props.ref}
       placeholder={props.placeholder}
       className="

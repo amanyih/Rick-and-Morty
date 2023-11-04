@@ -12,6 +12,8 @@ const LocationPage = () => {
     variables: { page: page, filter: filter },
   });
   const locations = data && data.locations.results;
+  const locationCount = data && data.locations.info.count;
+  const pageCount = data && data.locations.info.pages;
 
   const handlePageChange = async ({ selected }) => {
     setPage(selected);
@@ -20,21 +22,33 @@ const LocationPage = () => {
   return (
     <div>
       <div className="mb-20 w-full flex flex-col items-center flex-1">
-        <Search placeholder={"Search Locations"} />
+        <Search
+          placeholder={"Search Locations"}
+          handler={(value) => {
+            setFilter({ name: value });
+          }}
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-20">
-          {locations &&
-            locations.map((location) => {
-              return (
-                <LocationCard
-                  key={location.id}
-                  to={Route.LOCATION + "/" + location.id}
-                  location={location}
-                />
-              );
-            })}
-        </div>
-        <Pagination onPageChange={handlePageChange} pageCount={7} />
+        {locations && (
+          <div>
+            <h1 className="mb-5 text-3xl font-bold">
+              {locationCount} {locationCount > 1 ? "Locations" : "Location"}
+            </h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-20">
+              {locations.map((location) => {
+                return (
+                  <LocationCard
+                    key={location.id}
+                    to={Route.LOCATION + "/" + location.id}
+                    location={location}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <Pagination onPageChange={handlePageChange} pageCount={pageCount} />
       </div>
     </div>
   );

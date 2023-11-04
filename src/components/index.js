@@ -9,6 +9,7 @@ import {
   LocationCard,
   EpisodeCard,
   CharacterSkeleton,
+  AlternateChacterCard,
 } from "./card";
 import Search from "./search";
 import Filter from "./filter";
@@ -30,4 +31,5 @@ export {
   Pagination,
   Provider,
   CharacterSkeleton,
+  AlternateChacterCard,
 };

@@ -24,20 +24,28 @@ const CharachterPage = () => {
   };
 
   return (
-    <div className="mb-20 w-full flex flex-col items-center flex-1 px-20">
-      <Search placeholder={"Search Characters"} />
-      <div className="mb-10 flex">
+    <div className="mb-20 w-full flex flex-col items-center flex-1 px-5 md:px-20">
+      <Search
+        placeholder={"Search Characters"}
+        handler={(value) => {
+          setFilter({ name: value });
+        }}
+      />
+      <div
+        className="w-full mb-10 flex
+        justify-between items-center
+        flex-col md:flex-row  "
+      >
         <Filter
-          filterItems={[
-            { title: "Status", items: ["alive", "dead", "unknown"] },
-          ]}
+          filterItems={{ title: "Status", items: ["alive", "dead", "unknown"] }}
           setFilter={setFilter}
           filter={filter}
         />
         <Filter
-          filterItems={[
-            { title: "Gender", items: ["Male", "Female", "unknown"] },
-          ]}
+          filterItems={{
+            title: "Gender",
+            items: ["Male", "Female", "unknown"],
+          }}
           setFilter={setFilter}
           filter={filter}
         />

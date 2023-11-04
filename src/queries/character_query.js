@@ -33,6 +33,15 @@ export const GET_CHARACTER = gql`
         id
         name
       }
+      episode {
+        id
+        name
+        episode
+      }
+      location {
+        id
+        name
+      }
     }
   }
 `;

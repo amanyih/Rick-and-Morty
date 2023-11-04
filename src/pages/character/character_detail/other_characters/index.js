@@ -1,4 +1,4 @@
-import { CharacterCard } from "../../../../components";
+import { AlternateChacterCard } from "../../../../components";
 import { Route } from "../../../../constants";
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTER_BY_IDS } from "../../../../queries/character_query";
@@ -16,10 +16,7 @@ const PeopleAlsoSearchedFor = ({ cur_id }) => {
       {characters && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-20">
           {characters.map((character) => (
-            <CharacterCard
-              character={character}
-              to={Route.CHARACTER + "/" + character.id}
-            />
+            <AlternateChacterCard character={character} />
           ))}
         </div>
       )}

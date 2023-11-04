@@ -5,7 +5,6 @@ const NavItem = (props) => {
     let className = "font-bold  ";
 
     if (isActive) {
-      console.log(isActive, props.title);
       className = className + "text-lightBlue dark:text-lightGreen";
     } else {
       className = className + "hover:text-lightGreen dark:hover:text-lightBlue";
@@ -14,7 +13,7 @@ const NavItem = (props) => {
     return className;
   };
   return (
-    <li className="text-2xl px-8 cursor-pointer ">
+    <li className="mx-4 my-6 md:my-0 cursor-pointer" onClick={props.onClick}>
       <NavLink to={props.to} className={NavStyle}>
         {props.title}
       </NavLink>

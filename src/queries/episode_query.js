@@ -3,6 +3,10 @@ import { gql } from "@apollo/client";
 export const GET_EPISODES = gql`
   query GetEpisodes($page: Int!, $filter: FilterEpisode) {
     episodes(page: $page, filter: $filter) {
+      info {
+        count
+        pages
+      }
       results {
         id
         name
@@ -28,7 +32,7 @@ export const GET_EPISODE = gql`
         name
         status
         species
-        image
+        gender
       }
     }
   }
