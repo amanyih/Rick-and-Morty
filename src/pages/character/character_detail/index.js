@@ -1,45 +1,35 @@
-import { useEffect } from "react";
 import PeopleAlsoSearchedFor from "./other_characters";
-import { EpisodeCard } from "../../../components";
 import { Route } from "../../../constants";
-import useHttp from "../../../hooks/useHttp";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_CHARACTER } from "../../../queries/character_query";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 const CharacterDetail = () => {
-  const { data, sendRequest: getFamily } = useHttp();
   const { id } = useParams();
+  const { loading, error, data } = useQuery(GET_CHARACTER, {
+    variables: { id: id.toString() },
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await getFamily(`character/${id}`);
-    };
-    fetchData();
-  }, [id]);
+  const character = data && data.character;
 
   return (
-    <div className="w-full px-20">
-      {data && (
-        <div className="flex justify-center items-center w-full mb-20">
-          <div className="pr-4 border-r-2">
-            <img src={data.image} alt="" />
-          </div>
-          <div className="text-3xl pl-4">
-            <h1 className="text-7xl font-bold mb-5">{data.name}</h1>
-            <h1 className="mb-3">{`Species : ${data.species}`}</h1>
-            <h1 className="mb-3">{`Status : ${data.status}`}</h1>
-            <h1 className="mb-3">{`Gender : ${data.gender}`}</h1>
-            <h1 className="mb-3">{`Origin : ${data.origin}`}</h1>
-          </div>
+    <div className="mb-20 w-full">
+      {character && (
+        <div className=" w-full flex flex-col items-center flex-1 mb-20">
+          <h1 className="mb-5 text-5xl font-bold">{character.name}</h1>
+          <img
+            className={classNames("rounded-full border-4", {
+              "border-green-500": character.status === "Alive",
+              "border-red-500": character.status === "Dead",
+              "border-gray-500": character.status === "unknown",
+            })}
+            src={character.image}
+            alt=""
+          />
         </div>
       )}
-      {/* <div className="mb-10">
-        <h1 className="font-bold text-4xl mb-5">Appears On</h1>
-        <div className="flex flex-wrap">
-          <EpisodeCard to={Route.EPISODE + "/id"} />
-          <EpisodeCard to={Route.EPISODE + "/id"} />
-          <EpisodeCard to={Route.EPISODE + "/id"} />
-          <EpisodeCard to={Route.EPISODE + "/id"} />
-        </div>
-      </div> */}
+
       <PeopleAlsoSearchedFor cur_id={id} />
     </div>
   );

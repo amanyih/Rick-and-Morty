@@ -8,6 +8,7 @@ import RootLayout from "./layout";
 import CharacterLayout from "./layout/character";
 import LocationLayout from "./layout/location";
 import EpisodeLayout from "./layout/episode";
+import { Provider } from "./components";
 
 import {
   CharachterPage,
@@ -17,6 +18,7 @@ import {
   CharacterDetail,
   EpisodeDetail,
   LocationDetail,
+  ErrorPage,
 } from "./pages";
 import { Route as route } from "./constants";
 
@@ -38,12 +40,17 @@ const router = createBrowserRouter(
           <Route path=":id" element={<LocationDetail />} />
         </Route>
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Route>
   )
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider>
+      <RouterProvider router={router} />;
+    </Provider>
+  );
 }
 
 export default App;

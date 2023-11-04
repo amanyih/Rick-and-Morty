@@ -5,6 +5,7 @@ import LocationPage from "./location";
 import LocationDetail from "./location/location_detail";
 import EpisodeDetail from "./episode/episode_detail";
 import CharacterDetail from "./character/character_detail";
+import ErrorPage from "./error";
 
 export {
   CharachterPage,
@@ -14,4 +15,5 @@ export {
   LocationDetail,
   EpisodeDetail,
   CharacterDetail,
+  ErrorPage,
 };

@@ -5,7 +5,7 @@ const Breadcrumb = () => {
   let links = "";
 
   return (
-    <div className="mb-10 ml-5 ">
+    <div className="mb-10 ml-10 ">
       {path.map((link) => {
         links = links + "/" + link;
         return (

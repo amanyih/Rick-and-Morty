@@ -22,11 +22,13 @@ const Links = [
   },
 ];
 
+//collapsiple responsive navbar, in mobile view it will be collapsed and in desktop view it will be expanded
+
 const NavBar = () => {
   return (
-    <nav className="flex justify-between w-full my-5">
+    <nav className=" w-full flex justify-between items-center py-5 px-10">
       <Logo />
-      <div className="flex w-2/3">
+      <div className=" flex justify-between items-center">
         <ul className="flex justify-between items-center">
           {Links.map((link) => (
             <NavItem to={link.to} title={link.title} />
