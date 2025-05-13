@@ -44,9 +44,6 @@ export function Navbar() {
             height={50}
             className="h-10 w-auto"
           />
-          <span className="hidden md:inline-block font-bold text-xl">
-            Rick and Morty Portal
-          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

@@ -1,45 +1,75 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useRouter, useSearchParams } from "next/navigation"
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, X } from "lucide-react"
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Search, X } from "lucide-react";
+import { useDebounce } from "@/hooks/use-debounce";
 
 export function CharacterFilters() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const [name, setName] = useState(searchParams.get("name") || "")
-  const [status, setStatus] = useState(searchParams.get("status") || "")
-  const [gender, setGender] = useState(searchParams.get("gender") || "")
+  const [name, setName] = useState(searchParams.get("name") || "");
+  const [status, setStatus] = useState(searchParams.get("status") || "");
+  const [gender, setGender] = useState(searchParams.get("gender") || "");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const debouncedName = useDebounce(name, 500);
 
-    const params = new URLSearchParams()
-    if (name) params.set("name", name)
-    if (status) params.set("status", status)
-    if (gender) params.set("gender", gender)
+  // Apply filters when dropdown values change or search input is debounced
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
 
-    router.push(`/characters?${params.toString()}`)
-  }
+    if (debouncedName) {
+      params.set("name", debouncedName);
+    } else {
+      params.delete("name");
+    }
+
+    if (status && status !== "any") {
+      params.set("status", status);
+    } else {
+      params.delete("status");
+    }
+
+    if (gender && gender !== "any") {
+      params.set("gender", gender);
+    } else {
+      params.delete("gender");
+    }
+
+    // Reset to page 1 when filters change
+    params.delete("page");
+
+    // Use window.history.pushState to update the URL without triggering a navigation
+    const newUrl = `${pathname}?${params.toString()}`;
+    window.history.pushState({}, "", newUrl);
+
+    // Then trigger a router.replace to update the UI without changing the URL again
+    router.replace(newUrl, { scroll: false });
+  }, [debouncedName, status, gender, router, searchParams, pathname]);
 
   const handleReset = () => {
-    setName("")
-    setStatus("")
-    setGender("")
-    router.push("/characters")
-  }
+    setName("");
+    setStatus("");
+    setGender("");
+    router.push(pathname);
+  };
 
   return (
     <Card>
       <CardContent className="p-4">
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium">
@@ -93,18 +123,14 @@ export function CharacterFilters() {
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-end">
             <Button type="button" variant="outline" onClick={handleReset}>
               <X className="mr-2 h-4 w-4" />
               Reset
             </Button>
-            <Button type="submit">
-              <Search className="mr-2 h-4 w-4" />
-              Filter
-            </Button>
           </div>
-        </form>
+        </div>
       </CardContent>
     </Card>
-  )
+  );
 }

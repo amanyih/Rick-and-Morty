@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Github, Instagram, Linkedin } from "lucide-react"
+import Link from "next/link";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,10 +7,11 @@ export function Footer() {
       <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="/" className="font-bold text-lg">
-            Rick and Morty Portal
+            Rick and Morty
           </Link>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Rick and Morty Portal. All rights reserved.
+            © {new Date().getFullYear()} Rick and Morty Portal. All rights
+            reserved.
           </p>
         </div>
 
@@ -45,5 +46,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
