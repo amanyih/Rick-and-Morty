@@ -12,7 +12,7 @@ import { Search, RefreshCw } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export function EpisodeGrid() {
+export default function EpisodeGrid() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();

@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
 
-export function EpisodeFilters() {
+export default function EpisodeFilters() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

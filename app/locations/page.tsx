@@ -1,7 +1,14 @@
-import { LocationGrid } from "@/components/location-grid"
-import { LocationFilters } from "@/components/location-filters"
-import { Suspense } from "react"
-import { LocationGridSkeleton } from "@/components/skeletons/location-grid-skeleton"
+"use client";
+import { Suspense } from "react";
+import { LocationGridSkeleton } from "@/components/skeletons/location-grid-skeleton";
+import dynamic from "next/dynamic";
+
+const LocationFilters = dynamic(() => import("@/components/location-filters"), {
+  ssr: false,
+});
+const LocationGrid = dynamic(() => import("@/components/location-grid"), {
+  ssr: false,
+});
 
 export default function LocationsPage() {
   return (
@@ -9,10 +16,16 @@ export default function LocationsPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-4xl font-bold tracking-tight">Locations</h1>
       </div>
-      <LocationFilters />
+
+      <Suspense
+        fallback={<div className="h-20 bg-muted animate-pulse rounded-md" />}
+      >
+        <LocationFilters />
+      </Suspense>
+
       <Suspense fallback={<LocationGridSkeleton />}>
         <LocationGrid />
       </Suspense>
     </div>
-  )
+  );
 }

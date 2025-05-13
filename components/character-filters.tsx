@@ -15,7 +15,7 @@ import {
 import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
 
-export function CharacterFilters() {
+export default function CharacterFilters() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
