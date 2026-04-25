@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from "@apollo/client"
-import { useMemo } from "react"
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
+import { useMemo } from "react";
 
 export function ApolloWrapper({ children }: { children: React.ReactNode }) {
   const client = useMemo(() => {
@@ -17,8 +18,8 @@ export function ApolloWrapper({ children }: { children: React.ReactNode }) {
           fetchPolicy: "network-only",
         },
       },
-    })
-  }, [])
+    });
+  }, []);
 
-  return <ApolloProvider client={client}>{children}</ApolloProvider>
+  return <ApolloProvider client={client}>{children}</ApolloProvider>;
 }
